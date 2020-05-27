@@ -1,0 +1,43 @@
+
+<div id="login" ng-controller="loginController" layout="column" ng-cloak="">
+    <div ng-show="mensaje">
+        <div data-alert class="alert-box alert round">{{mensaje}}</div>
+    </div>
+    <md-content class="md-no-momentum container">
+        <div class="app-title">
+            <h1>Bienvenido</h1>
+        </div>
+        <form name="loginForm" ng-submit="submitForm()" novalidate>
+            <div class="login-form">
+                <md-input-container class="md-block">
+                    <md-icon md-svg-src="../src/img/email-24px.svg"></md-icon>
+                    <input class="login-input" type="email" name="email" ng-model="email" placeholder="Email" aria-label="Email" required>
+                    <span class="help-block error-text" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
+                        <span ng-show="loginForm.email.$error.required">Email es requerido</span>
+                        <span ng-show="loginForm.email.$error.email">Dirección de Email invalida</span>
+                    </span>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-icon md-svg-src="../src/img/vpn_key-24px.svg"></md-icon>
+                    <input class="login-input" type="password" name="password" ng-model="password" placeholder="Password" aria-label="Password" required>
+                    <span class="error-text" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+                        <span ng-show="loginForm.password.$error.required">Password es requerido</span>
+                        <span ng-show="loginForm.password.$error.password">Dirección de Email invalida</span>
+                    </span>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-icon md-svg-src="../src/img/vpn_key-24px.svg"></md-icon>
+                    <input class="login-input" type="text" name="app" ng-model="app" placeholder="App" aria-label="App" required>
+                    <span class="error-text" ng-show="loginForm.app.$dirty && loginForm.app.$invalid">
+                        <span ng-show="loginForm.app.$error.required">Password es requerido</span>
+                        <span ng-show="loginForm.app.$error.app">Dirección de Email invalida</span>
+                    </span>
+                </md-input-container>
+                <md-button type="submit" class="md-raised md-primary login-btn" >
+                    <!-- ng-disabled="loginForm.$invalid" -->
+                    Login
+                </md-button>
+            </div>
+        </form>
+    </md-content>
+</div>

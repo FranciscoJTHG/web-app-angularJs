@@ -1,0 +1,24 @@
+{
+  "name": "web-app-angularjs",
+  "version": "1.0.0",
+  "description": "WebApp desarrollado en AngularJs corespondiente a la prueba tecnica de Tuten Full Stack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francisco Thielen",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.9",
+    "angular-animate": "^1.7.9",
+    "angular-aria": "^1.7.9",
+    "angular-cookies": "^1.7.9",
+    "angular-material": "^1.1.22",
+    "angular-messages": "^1.7.9",
+    "angular-resource": "^1.7.9",
+    "angular-route": "^1.7.9",
+    "angular-sanitize": "^1.7.9",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1"
+  }
+}

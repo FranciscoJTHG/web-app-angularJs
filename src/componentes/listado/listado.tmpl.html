@@ -1,0 +1,30 @@
+<div ng-include="'componentes/menu/menu.html'"></div>
+
+<div id="mainContent" class="container" ng-controller="compListado">
+    <div id="cuerpo" class="container">
+        <h3 style="text-align: center;">Lista de Clientes</h3>
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+        <table class="table table-hover table-bordered friends">
+            <thead id="head">
+                <th>
+                    <button class="button" ng-click="orderByMe('bookingId')">BookingId</button>
+                    <span class="sortorder" ng-show="propertyName === 'bookingId'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th><span tooltip="Nombre de la entrada">Cliente</span></th>
+                <th>Fecha Creación</th>
+                <th>Dirección</th>
+                <th>
+                    <button class="button" ng-click="orderByMe('bookingPrice')">Precio</button>
+                    <span class="sortorder" ng-show="propertyName === 'bookingPrice'" ng-class="{reverse: reverse}"></span>
+                </th>
+            </thead>
+            <tr id="body" ng-repeat="datos in records | orderBy:myOrderBy:reverse">
+                <td>{{ datos.bookingId }}</td>
+                <td>{{ datos.tutenUserClient.firstName +' '+datos.tutenUserClient.lastName }}</td>
+                <td>{{ datos.bookingTime }}</td>
+                <td>{{ datos.locationId.streetAddress }}</td>
+                <td>{{ datos.bookingPrice }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
