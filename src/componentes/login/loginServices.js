@@ -1,41 +1,46 @@
-app.factory("loginServices", ['$http', '$location', 'sesionesControl', 'mensajesFlash', 'urls', function($http, $location, sesionesControl, mensajesFlash, urls){
+(function () {
+    'use strict';
+
+    app.factory("loginServices", ['$http', 'sesionesControl', 'urls', function($http, sesionesControl, urls){
+        
+        const cacheSession = function (response) {
+            sesionesControl.set('usuarioLogin', true);
     
-    const cacheSession = function (response) {
-        sesionesControl.set('usuarioLogin', true);
+            let usuario = {
+                email: response.data.email,
+                token: response.data.sessionTokenBck,
+                config: response.config,
+                userRole: response.data.userRole
+            };
+    
+            sesionesControl.setList('usuario',usuario);        
+        }
+    
+        const unCacheSession = function () {
+            sesionesControl.unset("usuarioLogin");
+            sesionesControl.unset("usuario");
+        }
+    
+        return{
+            login: function(usuario) {
+                let headers = { 'Accept': 'application/json', 'password': usuario.password, 'app': usuario.app };
+                let statusVal = '';
+                let data = '';
 
-        let usuario = {
-            email: response.data.email,
-            token: response.data.sessionTokenBck,
-            config: response.config,
-            userRole: response.data.userRole
-        };
+                return $http({
+                    url: urls.servidor +'testapis%40tuten.cl',
+                    method: "PUT",
+                    headers: headers
+                }).then(function (response) {
+                    
+                    cacheSession(response);
+                    sesionesControl.unset("mensaje");
+                    statusVal = response.status;
+                    data = response.data;
+                    return {statusVal, data};
 
-        sesionesControl.setList('usuario',usuario);        
-    }
-
-    const unCacheSession = function () {
-        sesionesControl.unset("usuarioLogin");
-        sesionesControl.unset("usuario");
-    }
-
-    return{
-        login: function(usuario) {
-            let headers = { 'Accept': 'application/json', 'password': usuario.password, 'app': usuario.app };
-
-            return $http({
-                url: urls.servidor +'testapis%40tuten.cl',
-                method: "PUT",
-                headers: headers
-            }).then(function (response) {
-                mensajesFlash.clear();
-                cacheSession(response);
-                sesionesControl.unset("mensaje");
-                $location.path('/listado');
-            }, function error(response) {
-                if (response.status==400) {
-                    mensajesFlash.show(data.mensaje,"danger");
-                }
-            });
-        },
-    }
-}]);
+                });
+            },
+        }
+    }]);
+})();

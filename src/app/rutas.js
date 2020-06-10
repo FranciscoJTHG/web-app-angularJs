@@ -3,11 +3,11 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
     $routeProvider
         .when("/", {
             templateUrl: "componentes/login/login.tmpl.html", 
-            controller: "contPrincipal"
+            controller: "loginController"
         })
         .when("/login", {
             templateUrl: "componentes/login/login.tmpl.html", 
-            controller: "contPrincipal"
+            controller: "loginController"
         })
         .when("/listado", {
             templateUrl: 'componentes/listado/listado.tmpl.html',
@@ -15,7 +15,7 @@ app.config(['$locationProvider','$routeProvider', function ($locationProvider, $
         })
         .when("/404", {
             templateUrl: "componentes/noFound/noFound.tmpl.html", 
-            controller: "controladorPrincipal"
+            controller: "contPrincipal"
         })
         .otherwise({
             redirectTo: '/404'

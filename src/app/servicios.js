@@ -31,6 +31,8 @@ app.factory("mensajesFlash", ['$rootScope', '$window', function($rootScope, $win
             $rootScope.alerts.push({type: tipo, msg: mensaje, visto: true});
         },
         clear: function (index) {
+            console.log(index);
+            
             $rootScope.mensaje = "";
             $rootScope.alerts.splice(index, 1);
         }

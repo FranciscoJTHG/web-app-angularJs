@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+div#login {
+    background: #8360c3;
+    background: -webkit-linear-gradient(to right, #8360c3, #2ebf91);
+    background: linear-gradient(to right, #8360c3, #2ebf91);
+    padding: 150px !important;
+    height: 747px;
+}
+
+div#mainContent {
+    margin-top: 50px;
+}
+
+nav.fondo {
+    background: #8360c3;
+    background: -webkit-linear-gradient(to right, #8360c3, #2ebf91);
+    background: linear-gradient(to right, #8360c3, #2ebf91);
+}
+
+md-content.container {
+    margin: 20px auto;
+    width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+div.login-form {
+    text-align: center;
+}
+
+div.app-title {
+    text-align: center;
+    color: #777;
+}
+
+input.login-input {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 280;
+    width: 280px !important;
+}
+
+.login-btn {
+    line-height: 20px !important;
+    padding: 10px 55px !important;
+    font-size: 1em !important;
+    border-radius: 10px !important;
+}
+
+md-input-container.md-icon-left {
+    padding-left: 50px !important;
+}
+
+md-input-container.md-icon-float>md-icon {
+    left: 30px !important;
+}
+
+span.error-text {
+    color: red;
+}
+
+.button {
+    border: none;
+}
+
+.sortorder:after {
+    content: '\25b2'; 
+}
+
+.sortorder.reverse:after {
+    content: '\25bc';  
+}

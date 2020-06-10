@@ -10,7 +10,7 @@
         <form name="loginForm" ng-submit="submitForm()" novalidate>
             <div class="login-form">
                 <md-input-container class="md-block">
-                    <md-icon md-svg-src="../src/img/email-24px.svg"></md-icon>
+                    <!-- <md-icon md-svg-src="../src/img/email-24px.svg"></md-icon> -->
                     <input class="login-input" type="email" name="email" ng-model="email" placeholder="Email" aria-label="Email" required>
                     <span class="help-block error-text" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
                         <span ng-show="loginForm.email.$error.required">Email es requerido</span>
@@ -18,7 +18,7 @@
                     </span>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <md-icon md-svg-src="../src/img/vpn_key-24px.svg"></md-icon>
+                    <!-- <md-icon md-svg-src="../src/img/vpn_key-24px.svg"></md-icon> -->
                     <input class="login-input" type="password" name="password" ng-model="password" placeholder="Password" aria-label="Password" required>
                     <span class="error-text" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
                         <span ng-show="loginForm.password.$error.required">Password es requerido</span>
@@ -26,7 +26,7 @@
                     </span>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <md-icon md-svg-src="../src/img/vpn_key-24px.svg"></md-icon>
+                    <!-- <md-icon md-svg-src="../src/img/vpn_key-24px.svg"></md-icon> -->
                     <input class="login-input" type="text" name="app" ng-model="app" placeholder="App" aria-label="App" required>
                     <span class="error-text" ng-show="loginForm.app.$dirty && loginForm.app.$invalid">
                         <span ng-show="loginForm.app.$error.required">Password es requerido</span>
@@ -37,7 +37,11 @@
                     <!-- ng-disabled="loginForm.$invalid" -->
                     Login
                 </md-button>
+                <img ng-if="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
             </div>
         </form>
     </md-content>
+    <div ng-if="error" class="alert alert-danger">
+        {{error}}
+    </div>
 </div>

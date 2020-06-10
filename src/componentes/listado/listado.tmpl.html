@@ -4,7 +4,21 @@
     <div id="cuerpo" class="container">
         <h3 style="text-align: center;">Lista de Clientes</h3>
         <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-        <table class="table table-hover table-bordered friends">
+        <!-- <div ui-grid="{ data: records}" class="myGrid"></div> -->
+        <table ui-grid="gridOptions">
+            <!--  <thead>
+                <th>
+                    <th><span tooltip="Nombre de la entrada">Cliente</span></th>
+                    <th>Fecha Creación</th>
+                    <th>Dirección</th>
+                </th>
+            </thead>
+            <tr>
+                <td>{{ datos.name }}</td>
+            </tr> -->
+
+        </table>
+        <!-- <table class="table table-hover table-bordered friends">
             <thead id="head">
                 <th>
                     <button class="button" ng-click="orderByMe('bookingId')">BookingId</button>
@@ -25,6 +39,6 @@
                 <td>{{ datos.locationId.streetAddress }}</td>
                 <td>{{ datos.bookingPrice }}</td>
             </tr>
-        </table>
+        </table> -->
     </div>
 </div>
